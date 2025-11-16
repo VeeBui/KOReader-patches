@@ -10,6 +10,7 @@ A comprehensive header and footer system with triple RGB progress bars for track
 
 <details>
 <summary>Click to expand details</summary>
+  
 **Features:**
 - Customizable header displaying book title, author, part, chapter, time, and battery
 - Stable page and Normal/Screen page support
