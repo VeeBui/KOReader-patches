@@ -17,7 +17,7 @@ A comprehensive header and footer system with triple RGB progress bars for track
 - Full RGB color support for progress bars
 - Session duration tracking
 
-![Detailed Header Footer Example](detailed-header-footer.jpg)
+<img src="detailed-header-footer.jpg" alt="Detailed Header Footer Example" width="50%">
 
 **Credits:**
 - Original header: [joshuacant/KOReader.patches](https://github.com/joshuacant/KOReader.patches)
