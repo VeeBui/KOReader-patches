@@ -41,7 +41,6 @@ A comprehensive header and footer system with triple RGB progress bars for track
 
 ### Coming Soon/To be uploaded
 
-- `2-customize-highlight-colors.lua` - Custom highlight color options
 - `2-TOC-with-chapter-lengths.lua` - Enhanced Table of Contents with chapter length information
 - `2-underline-option-in-menu.lua` - Add underline option to the highlighting menu
 - `2-browser-folder-coverlist.lua` - Folder browsing with alternate cover image grid view
