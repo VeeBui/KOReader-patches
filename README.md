@@ -8,6 +8,8 @@ Collection of custom patches I've made and modified for [KOReader](https://githu
 
 A comprehensive header and footer system with triple RGB progress bars for tracking reading progress at multiple levels.
 
+<details>
+<summary>Click to expand details</summary>
 **Features:**
 - Customizable header displaying book title, author, part, chapter, time, and battery
 - Stable page and Normal/Screen page support
@@ -32,7 +34,7 @@ A comprehensive header and footer system with triple RGB progress bars for track
 - If you want to change the number of lines, you'll need to dig into the code more (intermediate difficulty)
 - Can't narrow the footer row vertical spacing
 - If using publication pages, may not support non-integer page values
-
+</details>
 ---
 
 ### Coming Soon/To be uploaded
