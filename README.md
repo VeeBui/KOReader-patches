@@ -35,7 +35,8 @@ A comprehensive header and footer system with triple RGB progress bars for track
 - Can't narrow the footer row vertical spacing
 - If using publication pages, may not support non-integer page values
 </details>
-<br>
+
+---
 
 ### Coming Soon/To be uploaded
 
