@@ -2,6 +2,7 @@
 Collection of all the patches I have made/modified for KOReader
 
 2-detailed-header-footer.lua
+
 CREDITS:
 - Original header: https://github.com/joshuacant/KOReader.patches
 - Original double progress bar: https://github.com/gilgulgamesh/koreader-patches
