@@ -32,7 +32,7 @@ local ON = true
 local OFF = false
 
 ---------------------------------------------------------------------------------------------------
--- ⚙️ SETTINGS SECTION - EDIT THESE TO CUSTOMIZE YOUR COLOURS
+-- ⚙️ SETTINGS SECTION - EDIT THESE TO CUSTOMISE YOUR MENU
 ---------------------------------------------------------------------------------------------------
 
 local full_chapter_path = ON -- Show all valid table of contents items in chapter field
@@ -59,11 +59,13 @@ local function make_custom_buttons(self)
                     text = _("Highlight"),
                     enabled = this.hold_pos ~= nil,
                     callback = function()
-                        -- show 
-                        this:showHighlightColorDialog(function(selected_color)
-                            this:saveHighlightFormatted(true, "lighten", selected_color)
-                            this:onClose()
-                        end)
+                        -- show colour dialog immediately
+                        this:showHighlightColorDialog(
+                            function(selected_color)
+                                this:saveHighlightFormatted(true, "lighten", selected_color)
+                                this:onClose()
+                            end
+                        )
                     end,
                 }
             end,

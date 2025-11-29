@@ -20,7 +20,7 @@ local BlitBuffer = require("ffi/blitbuffer")
 local ReaderHighlight = require("apps/reader/modules/readerhighlight")
 
 ---------------------------------------------------------------------------------------------------
--- ⚙️ SETTINGS SECTION - EDIT THESE TO CUSTOMIZE YOUR COLOURS
+-- ⚙️ SETTINGS SECTION - EDIT THESE TO CUSTOMISE YOUR COLOURS
 ---------------------------------------------------------------------------------------------------
 local custom_colors = {
     -- {"id", "Display text", "hex code"}
