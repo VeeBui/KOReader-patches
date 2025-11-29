@@ -8,6 +8,8 @@ Collection of custom patches I've made and modified for [KOReader](https://githu
 
 A comprehensive header and footer system with triple RGB progress bars for tracking reading progress at multiple levels.
 
+<img src="/DetailedHeaderFooter/detailed-header-footer - Cropped.jpg" alt="Detailed Header Footer Example" width="50%">
+
 <details>
 <summary>Click to expand details</summary>
   
@@ -19,8 +21,6 @@ A comprehensive header and footer system with triple RGB progress bars for track
 - Progress bars and percentage calculated from screen pages, not stable! (More precision)
 - Full RGB color support for progress bars
 - Session duration tracking
-
-<img src="/DetailedHeaderFooter/detailed-header-footer - Cropped.jpg" alt="Detailed Header Footer Example" width="50%">
 
 **Credits:**
 - Original header: [joshuacant/KOReader.patches](https://github.com/joshuacant/KOReader.patches)
