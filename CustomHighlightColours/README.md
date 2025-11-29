@@ -1,4 +1,4 @@
-## [2-customise-highlight-colors - VEE COLOURS.lua](2-customise-highlight-colors.lua)
+## [2-customise-highlight-colors.lua](2-customise-highlight-colors-VEE-COLOURS.lua)
 
 A patch to easily modify the colours available for highlighting
 
@@ -10,9 +10,9 @@ A patch to easily modify the colours available for highlighting
 - Can have as many or as few colours as desired
 
 **Two Versions Available**
-- [Original values/names/colours](2-customise-highlight-colors - ORIGINAL.lua)
+- [Original values/names/colours](2-customise-highlight-colors-ORIGINAL.lua)
 - <img src="custom-HL-orig.jpg" alt="Original Colours Example" width="50%">
-- [Vee's values/names/colours](2-customise-highlight-colors - VEE COLOURS.lua)
+- [Vee's values/names/colours](2-customise-highlight-colors-VEE-COLOURS.lua)
 - <img src="custom-HL-Vee.jpg" alt="Vee's Colours Example" width="50%">
 
 **Credits:**
