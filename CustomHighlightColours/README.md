@@ -20,7 +20,6 @@ A patch to easily modify the colours available for highlighting
 
 **Considerations:**
 - Might not work on B/W eReaders
-- Highlight labels/display text no longer has translation/localisation ability
 - Must use hex codes, cannot use Blitbuffer grayscales
 
 ---
