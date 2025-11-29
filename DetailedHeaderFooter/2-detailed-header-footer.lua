@@ -50,13 +50,20 @@ local Math = require("optmath")
 local ReaderFooter = require("apps/reader/modules/readerfooter")
 local SESSION_DURATION = 1  -- Define this constant
 
--- Constants
+-- Constants - DON'T CHANGE
 local INITIAL_MARKER_HEIGHT_THRESHOLD = Screen:scaleBySize(12)
-local CHAPTER = 1
-local PART = 2
-local BOOK = 3
+local BOOK, SECTION, PART, CHAPTER, SUBCHAPTER = 1, 2, 3, 4, 5
 local ON = true
 local OFF = false
+
+-- TOC depth meanings
+local TOC_depth_meanings = {
+        [5] = {BOOK, SECTION, PART, CHAPTER, SUBCHAPTER},
+        [4] = {SECTION, PART, CHAPTER, SUBCHAPTER},
+        [3] = {PART, CHAPTER, SUBCHAPTER},
+        [2] = {PART, CHAPTER},
+        [1] = {CHAPTER}
+}
 
 ---------------------------------------------------------------------------------------------------
 -- ⚙️ SETTINGS SECTION - EDIT THESE TO CUSTOMIZE YOUR DISPLAY
@@ -65,25 +72,64 @@ local OFF = false
 -----------------------------------------------------
 -- PROGRESS BAR SETTINGS
 -----------------------------------------------------
--- Which progress type for each bar? (CHAPTER, PART, or BOOK)
-local top_bar_type = BOOK      -- Top bar shows: Book progress
-local mid_bar_type = PART      -- Middle bar shows: Part progress
-local bot_bar_type = CHAPTER   -- Bottom bar shows: Chapter progress
+-- What to display for progress bars/rows
+-- VALUES: BOOK > SECTION > PART > CHAPTER > SUBCHAPTER
+local bar_appearance = {
+    num_max_bars = 5, -- [1-4] (1=Only show one bar, 2-4=Maximum number of bars to show)
+    top_value = BOOK, -- [CHOOSE FROM VALUES] Which progress to show (/at the top for multiple bars)
+    bot_values = {
+        bar_order = {
+            -- Additional bars to display based on book's TOC depth
+            -- [MAX_TOC_DEPTH] = {bar order from second row to bottom}
+            -- Ignore lines with [MAX_TOC_DEPTH >= num_max_bars]
+            --[[
+                Example:
+                num_max_bars = 2,
+                top_value = BOOK,
+                bot_values = {
+                    bar_order = {
+                        [1] = {PART}
+                    },
+                    default = CHAPTER
+                }
+                -> Only two bars shows, top=BOOK, bottom=PART(if available, otherwise show default)
+            ]]
+            [4] = {SECTION, PART, CHAPTER, SUBCHAPTER},
+            [3] = {PART, CHAPTER, SUBCHAPTER},
+            [2] = {PART, CHAPTER},
+            [1] = {CHAPTER}
+        },
+        default = CHAPTER -- [CHOOSE FROM VALUES OR "NONE"] Which progress to show (/at the top for multiple bars)
+    }
+}
+
+--! local top_bar_type = BOOK      -- Top bar shows: Book progress
+--! local mid_bar_type = PART      -- Middle bar shows: Part progress
+--! local bot_bar_type = CHAPTER   -- Bottom bar shows: Chapter progress
 
 -- Bar positioning and appearance
-local stacked = ON  -- Stack all bars at bottom? (ON = bottom stack, OFF = hide top and middle)
+--! local stacked = ON  -- Stack all bars at bottom? (ON = bottom stack, OFF = hide top and middle)
 local margin_l = 75  -- Left margin for progress bars
 local margin_r = 450  -- Right margin for progress bars
 local gap = 16  -- Space between stacked bars
 local radius = 2  -- Corner roundness (0 = sharp corners)
 local prog_bar_thickness = 20  -- Height of each bar
 local bottom_padding = 9  -- Space between bottom bar and screen edge
-local top_padding = -1  -- For unstacked bars: position of top bar (negative = tucked to edge)
+--! local top_padding = -1  -- For unstacked bars: position of top bar (negative = tucked to edge)
 
 -- Progress bar colors (RGB support!)
-local top_bar_seen_color = Blitbuffer.colorFromString("#9500FF")  -- Purple for read portion
-local mid_bar_seen_color = Blitbuffer.colorFromString("#20BF55")  -- Green for read portion
-local bot_bar_seen_color = Blitbuffer.colorFromString("#01BAEF")  -- Blue for read portion
+    -- Colour for read portion
+    -- BOOK > SECTION > PART > CHAPTER > SUBCHAPTER
+local bar_seen_colours = {
+    [BOOK] = Blitbuffer.colorFromString("#9500FF"), -- Colour for book
+    [SECTION] = Blitbuffer.colorFromString("#DC2424"), -- Colour for section
+    [PART] = Blitbuffer.colorFromString("#20BF55"), -- Colour for part
+    [CHAPTER] = Blitbuffer.colorFromString("#01BAEF") -- Colour for chapter
+    [SUBCHAPTER] = Blitbuffer.colorFromString("#01BAEF") -- Colour for sub-chapter
+}
+--! local top_bar_seen_color = Blitbuffer.colorFromString("#9500FF")  -- Purple for read portion
+--! local mid_bar_seen_color = Blitbuffer.colorFromString("#20BF55")  -- Green for read portion
+--! local bot_bar_seen_color = Blitbuffer.colorFromString("#01BAEF")  -- Blue for read portion
 local bar_unread_color = Blitbuffer.COLOR_GRAY_D  -- Gray for unread portion
 
 --[[
@@ -150,6 +196,7 @@ CHAPTER INFO (TOC entries with maximum depth):
 SYSTEM INFO:
 - time                          -- Current clock time
 - battery                       -- Battery level with icon
+- session_duration              -- Time since document last opened
 
 STRING FORMATTING:
 Use string.format() for custom layouts:
@@ -432,7 +479,7 @@ ReaderView.paintTo = function(self, bb, x, y)
                 temp.pages.remaining.screen = temp.pages.total.screen - temp.pages.current.screen
                 
                 local temp_start_stable = screenToStablePage(entry.page, screen_to_stable_cache) or 1
-                local temp_end_stable = screenToStablePage(entry.page + entry.chapter_length, screen_to_stable_cache) or 1
+                local temp_end_stable = screenToStablePage(entry.page + entry.chapter_length - 1, screen_to_stable_cache) or 1
                 temp.pages.current.stable = book.pages.current.stable - temp_start_stable + 1
                 temp.pages.total.stable = temp_end_stable - temp_start_stable + 1
                 temp.pages.remaining.stable = temp.pages.total.stable - temp.pages.current.stable
