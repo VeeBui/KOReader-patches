@@ -10,6 +10,7 @@ A comprehensive header and footer system with triple RGB progress bars for track
 
 <details>
 <summary>Click to expand details
+  
 <img src="/DetailedHeaderFooter/detailed-header-footer - Cropped.jpg" alt="Detailed Header Footer Example" width="50%">
 </summary>
   
