@@ -21,6 +21,8 @@ CREDITS:
 -- Required libraries
 local ReaderHighlight = require("apps/reader/modules/readerhighlight")
 local _ = require("gettext")
+local UIManager = require("ui/uimanager")
+local Geom = require("ui/geometry")
 local logger = require("logger")
 
 -- Store the original functions to call it later if needed
@@ -51,7 +53,7 @@ local function make_custom_buttons(self)
                 -- Uses my custom highlight function to:
                     -- ensure lighten style
                     -- use full_chapter_path variable above
-                -- Immediately opens the select colour menu
+                -- Immediately opens the select colour menu while closing the first menu
             ]]--
             id = "highlight",
             func = function(this)
@@ -59,11 +61,40 @@ local function make_custom_buttons(self)
                     text = _("Highlight"),
                     enabled = this.hold_pos ~= nil,
                     callback = function()
-                        -- show colour dialog immediately
+                        -- Store the selected text before closing
+                        local saved_selection = {
+                            pos0 = this.selected_text.pos0,
+                            pos1 = this.selected_text.pos1,
+                            text = this.selected_text.text,
+                            sboxes = this.selected_text.sboxes,
+                            pboxes = this.selected_text.pboxes,
+                            datetime = this.selected_text.datetime,
+                        }
+                        local saved_hold_pos = this.hold_pos
+                        
+                        -- Close ONLY the dialog, not the highlight
+                        if this.highlight_dialog then
+                            UIManager:close(this.highlight_dialog)
+                            this.highlight_dialog = nil
+                        end
+                        -- Restore the selection
+                        this.selected_text = saved_selection
+                        this.hold_pos = saved_hold_pos
+
+                        -- Redraw the highlight with the restored boxes
+                        if this.ui.paging then
+                            this.view.highlight.temp[saved_hold_pos.page] = saved_selection.sboxes or saved_selection.pboxes
+                            UIManager:setDirty(this.dialog, "ui")
+                        else
+                            UIManager:setDirty(this.dialog, "ui", Geom.boundingBox(saved_selection.sboxes))
+                        end
+                        
+                        -- Then show colour dialog immediately
                         this:showHighlightColorDialog(
                             function(selected_color)
                                 this:saveHighlightFormatted(true, "lighten", selected_color)
-                                this:onClose()
+                                this:clear()  -- Clear highlight after saving
+                                --this:onClose()
                             end
                         )
                     end,
