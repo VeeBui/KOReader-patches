@@ -4,7 +4,7 @@ Collection of custom patches I've made and modified for [KOReader](https://githu
 
 ## Patches
 
-### [2-detailed-header-footer.lua](2-detailed-header-footer.lua)
+### [2-detailed-header-footer.lua](/DetailedHeaderFooter/)
 
 A comprehensive header and footer system with triple RGB progress bars for tracking reading progress at multiple levels.
 
