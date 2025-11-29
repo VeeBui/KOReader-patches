@@ -541,7 +541,6 @@ ReaderView.paintTo = function(self, bb, x, y)
         battery = batt_prefix .. batt_lvl .. "%"
     end
     local session_duration = getSessionDuration(self.ui)
-    logger.info(session_duration)
     
     ------------------------------------------------------
     -- Text Fitting Function

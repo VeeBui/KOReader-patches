@@ -22,8 +22,6 @@ A comprehensive header and footer system with triple RGB progress bars for track
 - Full RGB color support for progress bars
 - Session duration tracking
 
-<img src="detailed-header-footer.jpg" alt="Detailed Header Footer Example" width="50%">
-
 **Credits:**
 - Original header: [joshuacant/KOReader.patches](https://github.com/joshuacant/KOReader.patches)
 - Original double progress bar: [gilgulgamesh/koreader-patches](https://github.com/gilgulgamesh/koreader-patches)
@@ -69,12 +67,36 @@ A patch to easily modify the colours available for highlighting
 - Must use hex codes, cannot use Blitbuffer grayscales
 </details>
 
+### [2-custom-highlight-menu.lua](2-custom-highlight-menu.lua)
+
+A patch to modify the select text menu
+
+<img src="/CustomHighlightMenu/custom-HL-menu-cropped.jpg" alt="Custom Select Text Menu Example" width="50%">
+
+<details>
+<summary>Click to expand details</summary>
+  
+**Features:**
+- Ability to rearrange menu buttons in select text menu
+- Ability to add custom buttons to select text menu
+  - Custom highlight function for specification of highlight style and colour
+  - Functionality can be customised from readerhighlight.lua
+- Toggle whether chapter gets saved as lowest TOC level or full path
+  - e.g. Part 1 ▸ Chapter 1
+
+**Credits:**
+- My original highlight menu patch: [here](https://github.com/VeeBui/koReader-highlight-menu-patch/blob/main/2-highlight-menu-modifications.lua)
+- Full TOC Path: [edo-jan's patch on koreader/issues](https://github.com/koreader/koreader/issues/12480#issuecomment-2835548463)
+
+**Considerations:**
+- Can't get rid of the "Generate QR code" button
+</details>
+
 ---
 
 ### Coming Soon/To be uploaded
 
 - `2-TOC-with-chapter-lengths.lua` - Enhanced Table of Contents with chapter length information
-- `2-underline-option-in-menu.lua` - Add underline option to the highlighting menu
 - `2-browser-folder-coverlist.lua` - Folder browsing with alternate cover image grid view
 
 ## Installation
