@@ -4,12 +4,10 @@ Collection of custom patches I've made and modified for [KOReader](https://githu
 
 ## Patches
 
-### [2-detailed-header-footer.lua](/DetailedHeaderFooter/)
+### [2-detailed-header-footer.lua](2-detailed-header-footer.lua)
 
 A comprehensive header and footer system with triple RGB progress bars for tracking reading progress at multiple levels.
 
-<details>
-<summary>Click to expand details</summary>
   
 **Features:**
 - Customizable header displaying book title, author, part, chapter, time, and battery
@@ -20,7 +18,7 @@ A comprehensive header and footer system with triple RGB progress bars for track
 - Full RGB color support for progress bars
 - Session duration tracking
 
-<img src="/DetailedHeaderFooter/detailed-header-footer - Cropped.jpg" alt="Detailed Header Footer Example" width="50%">
+<img src="detailed-header-footer.jpg" alt="Detailed Header Footer Example" width="50%">
 
 **Credits:**
 - Original header: [joshuacant/KOReader.patches](https://github.com/joshuacant/KOReader.patches)
@@ -35,30 +33,6 @@ A comprehensive header and footer system with triple RGB progress bars for track
 - If you want to change the number of lines, you'll need to dig into the code more (intermediate difficulty)
 - Can't narrow the footer row vertical spacing
 - If using publication pages, may not support non-integer page values
-</details>
 
 ---
 
-### Coming Soon/To be uploaded
-
-- `2-TOC-with-chapter-lengths.lua` - Enhanced Table of Contents with chapter length information
-- `2-underline-option-in-menu.lua` - Add underline option to the highlighting menu
-- `2-browser-folder-coverlist.lua` - Folder browsing with alternate cover image grid view
-
-## Installation
-
-1. Connect your KOReader device to your computer
-2. Navigate to the KOReader installation directory
-3. Copy the desired `.lua` patch file to `koreader/patches/`
-4. Restart KOReader
-5. The patch will be automatically applied
-
-* Only tested on Kobo Libra Color
-
-## Contributing
-
-Feel free to open issues for bugs or feature requests, or submit pull requests with improvements!
-
-## License
-
-These patches build upon KOReader's existing codebase. Please refer to the original [KOReader license](https://github.com/koreader/koreader/blob/master/COPYING) for usage terms.
