@@ -1,4 +1,4 @@
-## [2-customise-highlight-colors.lua](2-customise-highlight-colors - VEE COLOURS.lua)
+## [2-customise-highlight-colors - VEE COLOURS.lua](2-customise-highlight-colors.lua)
 
 A patch to easily modify the colours available for highlighting
 
