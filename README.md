@@ -8,11 +8,10 @@ Collection of custom patches I've made and modified for [KOReader](https://githu
 
 A comprehensive header and footer system with triple RGB progress bars for tracking reading progress at multiple levels.
 
-<details>
-<summary>Click to expand details
-  
 <img src="/DetailedHeaderFooter/detailed-header-footer - Cropped.jpg" alt="Detailed Header Footer Example" width="50%">
-</summary>
+
+<details>
+<summary>Click to expand details</summary>
   
 **Features:**
 - Customizable header displaying book title, author, part, chapter, time, and battery
