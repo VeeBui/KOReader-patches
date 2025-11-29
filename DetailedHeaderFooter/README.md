@@ -1,10 +1,4 @@
-# KOReader-patches
-
-Collection of custom patches I've made and modified for [KOReader](https://github.com/koreader/koreader), an ebook reader application supporting various formats on multiple platforms.
-
-## Patches
-
-### [2-detailed-header-footer.lua](2-detailed-header-footer.lua)
+## [2-detailed-header-footer.lua](2-detailed-header-footer.lua)
 
 A comprehensive header and footer system with triple RGB progress bars for tracking reading progress at multiple levels.
 
