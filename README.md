@@ -67,7 +67,7 @@ A patch to easily modify the colours available for highlighting
 - Must use hex codes, cannot use Blitbuffer grayscales
 </details>
 
-### [2-custom-highlight-menu.lua](2-custom-highlight-menu.lua)
+### [2-custom-highlight-menu.lua](/CustomHighlightMenu/)
 
 A patch to modify the select text menu
 
