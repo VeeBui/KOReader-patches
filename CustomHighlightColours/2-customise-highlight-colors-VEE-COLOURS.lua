@@ -12,6 +12,8 @@ REQUIREMENTS:
 CREDITS:
 - Original custom highlights: 
     https://www.reddit.com/r/koreader/comments/1ibqhmc/comment/m9kcr4f/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+    or
+    https://github.com/ImSoRight/KOReader.patches/blob/main/2-customize-highlight-colors.lua
 ===================================================================================================
 ]]--
 
