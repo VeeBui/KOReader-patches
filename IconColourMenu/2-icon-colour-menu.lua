@@ -30,12 +30,13 @@ local orig_showHighlightColorDialog = ReaderHighlight.showHighlightColorDialog
 ---------------------------------------------------------------------------------------------------
 local rows = 2
 local icon_folder = "colours/" -- the folder inside /icons/
+
 local change_set_for_underline = true
 
 -- underline options (optional)
 local underline_colors = {
     -- {"Name", "id"}
-    {"General", "purple"},
+    {"Characters", "purple"},
     {"Deities", "red"},
     {"Animals", "yellow"},
     {"References", "green"},
