@@ -81,36 +81,7 @@ local function make_custom_buttons(self)
     }
     return custom_buttons
 end
-
-----------------------------------------------------------------------
--- Modify function ReaderHighlight:showHighlightColorDialog(caller_callback, item)
--- Because if you close the color_dialog without selecting a colour, the text will remain selected
---[[
-local old_showHighlightColorDialog = ReaderHighlight.showHighlightColorDialog
-function ReaderHighlight:showHighlightColorDialog(caller_callback, item)
-    -- run the previous function
-    old_showHighlightColorDialog(self, caller_callback, item)
-    
-    if not self.highlight_color_dialog then
-        return
-    end
-    
-    local old_onClose = self.highlight_color_dialog.onClose
-    -- modify to clear selection
-    self.highlight_color_dialog.onClose = function(dialog)
-        -- run the old onTapClose function
-        if old_onClose then
-            old_onClose(dialog)
-        end
-        
-        -- clear selection if no colour chose
-        if not self._color_chosen then
-            self:clear()
-        end
-    end
-end
-]]--
-----------------------------------------------------------------------
+----------------------------------------------------------
 -- Functions were getting unwieldy, so placed them down here
 function custom_highlight_func(this)
     return {

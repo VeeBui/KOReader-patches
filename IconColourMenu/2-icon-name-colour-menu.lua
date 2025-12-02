@@ -47,17 +47,25 @@ local orig_showHighlightColorDialog = ReaderHighlight.showHighlightColorDialog
 -- Constants
 local ID = 2
 local NAME = 1
+local TOP = 0
+local MID = 0.5
+local BOT = 1
 
 ---------------------------------------------------------------------------------------------------
 -- ⚙️ SETTINGS SECTION - EDIT THESE TO CUSTOMISE YOUR MENU
 ---------------------------------------------------------------------------------------------------
 local rows = 2
 local icon_folder = "colours/" -- the folder inside /icons/
-local icon_name_select = ID -- if your icons are {id}.png or {Name}.png
+local icon_name_select = NAME -- if your icons are {id}.png or {Name}.png
 
-local icon_width = 100
-local text_size = 10
+local icon_width = 120 -- (120) assume square icon (button will also be square unless offset exceed icon bounds)
+local bordersize = 2
+
+local show_color_Name = true
+local text_size = 10  -- (10)
 local min_text_size = 6
+local text_position = BOT
+local text_offset = 30 -- (30)
 
 local change_set_for_underline = true
 
@@ -104,49 +112,113 @@ function ReaderHighlight:showHighlightColorDialog(caller_callback, item)
             current_row = {}
         end
 
-        -- Create text widget
-        local textWidget = TextWidget:new{
-                                text = color_nm,
-                                face = Font:getFace(nil, text_size),
-                                fgcolor = BlitBuffer.COLOR_BLACK,
-                                bold = true,
-                            }
-
-        -- Check if text too large
-        for ts=text_size,min_text_size,-1 do
-            if textWidget:getSize().w > icon_width then
-                textWidget = TextWidget:new{
-                                text = color_nm,
-                                face = Font:getFace(nil, ts-1),
-                                fgcolor = BlitBuffer.COLOR_BLACK,
-                                bold = true,
-                            }
-            else
-                break
-            end
-        end
-        
-        -- Create button with icon and overlaid text
-        local color_button = InputContainer:new{
-            FrameContainer:new{
-                padding = Size.padding.small,
-                bordersize = Size.border.button,
-                OverlapGroup:new{
-                    IconWidget:new{
+        --[[
+        Create the text widget (if desired, at desired vertical position, with desired offset)
+            - {VerticalSpan + textWidget}
+            |- Vertical Group
+                |- CenterContainer
+        ]]
+        local color_button
+        local icon_widget = IconWidget:new{
                         icon = icon_folder .. icon_prefix,
                         width = icon_width,
                         height = icon_width,
-                    },
+                    }
+        local function make_button(padding, bordersize, input_container)
+            return InputContainer:new{
+                FrameContainer:new{
+                    padding = padding,
+                    bordersize = bordersize,
+                    input_container
+                }
+            }
+        end
+
+        -- Check if text desired
+        if show_color_Name then
+            -- Create text widget
+            local text_Widget = TextWidget:new{
+                                    text = color_nm,
+                                    face = Font:getFace(nil, text_size),
+                                    fgcolor = BlitBuffer.COLOR_BLACK,
+                                    bold = true,
+                                }
+            -- Get original height so that text moves down the same amount
+            local orig_text_height = text_Widget:getSize().h
+            -- Check if text too large
+            for ts=text_size,min_text_size,-1 do
+                if text_Widget:getSize().w > icon_width then
+                    text_Widget = TextWidget:new{
+                                    text = color_nm,
+                                    face = Font:getFace(nil, ts-1),
+                                    fgcolor = BlitBuffer.COLOR_BLACK,
+                                    bold = true,
+                                }
+                else
+                    break
+                end
+            end
+
+            -- Get the required span
+            local mismatch = 0.5*(orig_text_height - text_Widget:getSize().h)
+            local required_span = text_position * (icon_width - orig_text_height) + mismatch
+
+            -- Get new span for offset
+            local new_span = required_span + text_offset
+            local available_height = icon_width - text_Widget:getSize().h -- How far from top can text widget be pushed?
+
+            local overlap_group
+
+            -- Check bounds to see how to arrange
+            if new_span < 0 then
+                -- Text above icon container
+                overlap_group = OverlapGroup:new{
+                        CenterContainer:new{
+                            dimen = Geom:new{ w = icon_width, h = icon_width + text_offset + text_Widget:getSize().h},
+                            VerticalGroup:new{
+                                VerticalSpan:new{ width = required_span - text_offset}, -- offset will be negative
+                                icon_widget
+                            }
+                        },
+                        CenterContainer:new{
+                            dimen = Geom:new{ w = icon_width, h = text_Widget:getSize().h },
+                            text_Widget
+                        }
+                    }
+
+            elseif new_span > available_height then
+                -- Text will go below icon container
+                overlap_group = OverlapGroup:new{
+                    icon_widget,
                     CenterContainer:new{
-                        dimen = Geom:new{ w = icon_width, h = icon_width },
+                        dimen = Geom:new{ w = icon_width, h = icon_width + text_offset - mismatch}, -- overlaps aligned at top-left
                         VerticalGroup:new{
-                            VerticalSpan:new{width = icon_width - textWidget:getSize().h},
-                            textWidget
+                            VerticalSpan:new{ width = new_span}, -- req_span + offset
+                            text_Widget
                         }
                     }
                 }
-            }
-        }
+            else
+                -- Text within bounds
+                overlap_group = OverlapGroup:new{
+                    icon_widget,
+                    CenterContainer:new{
+                        dimen = Geom:new{ w = icon_width, h = icon_width },
+                        VerticalGroup:new{
+                            VerticalSpan:new{ width = new_span},
+                            text_Widget
+                        }
+                    }
+                }
+            end
+
+            -- Make the button
+            color_button = make_button(padding, bordersize, overlap_group)
+
+        else
+            -- Don't need the OverlapGroup
+            color_button = make_button(padding, bordersize, icon_widget)
+        end
         
         color_button.ges_events = {
             Tap = {
