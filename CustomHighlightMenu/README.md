@@ -30,6 +30,9 @@ A patch to modify the select text menu
 
 **Considerations:**
 - Can't get rid of the "Generate QR code" button
+- If you're not using my 2-icon-name-colour-menu.lua, if you tap out of the highlight colour menu without choosing a colour, the text will remain selected and you'll have to tap out of the Select-Text menu.
+  - You can either edit the custom_highlight_func to remove the functionality which closes the Select-Text menu, modify the source code for frontend/apps/reader/modules/readerhighlight.lua > ReaderHighlight:showHighlightColorDialog, or install my 2-icon-name-color-menua.lua patch
+    - or... just make sure you always apply a colour/live with having to tap twice if  you didn't actually want to highlight.
 
 ---
 

@@ -85,6 +85,7 @@ end
 ----------------------------------------------------------------------
 -- Modify function ReaderHighlight:showHighlightColorDialog(caller_callback, item)
 -- Because if you close the color_dialog without selecting a colour, the text will remain selected
+--[[
 local old_showHighlightColorDialog = ReaderHighlight.showHighlightColorDialog
 function ReaderHighlight:showHighlightColorDialog(caller_callback, item)
     -- run the previous function
@@ -108,6 +109,7 @@ function ReaderHighlight:showHighlightColorDialog(caller_callback, item)
         end
     end
 end
+]]--
 ----------------------------------------------------------------------
 -- Functions were getting unwieldy, so placed them down here
 function custom_highlight_func(this)

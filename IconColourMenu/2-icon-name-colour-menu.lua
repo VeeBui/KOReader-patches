@@ -203,6 +203,11 @@ function ReaderHighlight:showHighlightColorDialog(caller_callback, item)
             UIManager:close(self.highlight_color_dialog)
             UIManager:setDirty(nil, "full")
         end
+
+        -- clear selection
+        if not self._color_chosen then
+            self:clear()
+        end
         return true
     end
     
