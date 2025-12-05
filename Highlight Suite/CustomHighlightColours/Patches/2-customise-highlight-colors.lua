@@ -19,6 +19,7 @@ CREDITS:
 
 -- Required libraries
 local BlitBuffer = require("ffi/blitbuffer")
+local _ = require("gettext")
 local ReaderHighlight = require("apps/reader/modules/readerhighlight")
 
 ---------------------------------------------------------------------------------------------------
@@ -46,12 +47,12 @@ local custom_colors = {
 
 ReaderHighlight_orig_colors = ReaderHighlight.highlight_colors
 ReaderHighlight.highlight_colors = {}
-for _, color_data in ipairs(custom_colors) do
-    table.insert(ReaderHighlight.highlight_colors, {color_data[2], color_data[1]})
+for i, color_data in ipairs(custom_colors) do
+    table.insert(ReaderHighlight.highlight_colors, {_(color_data[2]), color_data[1]})
 end
 
 BlitBuffer_orig_highlight_colors = BlitBuffer.HIGHLIGHT_COLORS
 BlitBuffer.HIGHLIGHT_COLORS = {}
-for _, color_data in ipairs(custom_colors) do
+for i, color_data in ipairs(custom_colors) do
     BlitBuffer.HIGHLIGHT_COLORS[color_data[1]] = color_data[3]
 end
