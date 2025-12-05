@@ -57,15 +57,37 @@ Each colour entry follows the following **format**:
 <br>
 
 > **Example**: - adding "pink"
+> 
+> <table>
+> <tr>
+> <td>
+> 
 > ```lua
 > local custom_colors = {
 >     ...
 >     {"blue", "Blue", "#56A1FC"},
->     {"pink", "Pink", "#FF66CC"},  -- New colour added here!
 >     {"purple", "Purple", "#9500FF"},
 >     ...
 > }
 > ```
+> 
+> </td>
+> <td align="center" valign="middle" style="font-size: 2em;">→</td>
+> <td>
+> 
+> ```lua
+> local custom_colors = {
+>     ...
+>     {"blue", "Blue", "#56A1FC"},
+>     {"pink", "Pink", "#FF66CC"},  -- Here!
+>     {"purple", "Purple", "#9500FF"},
+>     ...
+> }
+> ```
+> 
+> </td>
+> </tr>
+> </table>
 >
 > Add this row to the desired position in the table.
 
