@@ -58,14 +58,14 @@ local rows = 2
 local icon_folder = "colours/" -- the folder inside /icons/
 local icon_name_select = NAME -- if your icons are {id}.png or {Name}.png
 
-local icon_width = 120 -- (120) assume square icon (button will also be square unless offset exceed icon bounds)
+local icon_width = 120 -- square icon
 local bordersize = 2
 
 local show_color_Name = true
-local text_size = 10  -- (10)
+local text_size = 10
 local min_text_size = 6
 local text_position = BOT
-local text_offset = 30 -- (30)
+local text_offset = 30
 
 local change_set_for_underline = true
 
@@ -159,65 +159,76 @@ function ReaderHighlight:showHighlightColorDialog(caller_callback, item)
                 end
             end
 
-            -- Get the required span
+            -- Encase the text widget in a new container for standardness
             local mismatch = 0.5*(orig_text_height - text_Widget:getSize().h)
-            local required_span = text_position * (icon_width - orig_text_height) + mismatch
+            local new_text_widget = CenterContainer:new{
+                dimen = Geom:new{ w = icon_width, h = orig_text_height },
+                VerticalGroup:new{
+                    align = "center",
+                    VerticalSpan:new{ width = mismatch},
+                    text_Widget,
+                    VerticalSpan:new{ width = mismatch},
+                }
+            }
+
+            -- Get the required span
+            local required_span = text_position * (icon_width - orig_text_height)
 
             -- Get new span for offset
             local new_span = required_span + text_offset
-            local available_height = icon_width - text_Widget:getSize().h -- How far from top can text widget be pushed?
+            local available_height = icon_width - orig_text_height -- How far from top can text widget be pushed?
 
-            local overlap_group
-
-            -- Check bounds to see how to arrange
+            -- Make new containers for icon and text based on offset
+            local icon_container
+            local text_container
+            local container_height
             if new_span < 0 then
-                -- Text above icon container
-                overlap_group = OverlapGroup:new{
-                        CenterContainer:new{
-                            dimen = Geom:new{ w = icon_width, h = icon_width + text_offset + text_Widget:getSize().h},
-                            VerticalGroup:new{
-                                VerticalSpan:new{ width = required_span - text_offset}, -- offset will be negative
-                                icon_widget
-                            }
-                        },
-                        CenterContainer:new{
-                            dimen = Geom:new{ w = icon_width, h = text_Widget:getSize().h },
-                            text_Widget
-                        }
-                    }
-
-            elseif new_span > available_height then
-                -- Text will go below icon container
-                overlap_group = OverlapGroup:new{
-                    icon_widget,
-                    CenterContainer:new{
-                        dimen = Geom:new{ w = icon_width, h = icon_width + text_offset - mismatch}, -- overlaps aligned at top-left
-                        VerticalGroup:new{
-                            VerticalSpan:new{ width = new_span}, -- req_span + offset
-                            text_Widget
-                        }
-                    }
+                -- text will go above icon
+                container_height = icon_width - required_span - text_offset
+                icon_container = VerticalGroup:new{
+                    VerticalSpan:new{ width = container_height - icon_width },
+                    icon_widget
+                }
+                text_container = VerticalGroup:new{
+                    new_text_widget,
+                    VerticalSpan:new{ width = container_height - orig_text_height}
+                }
+            elseif new_span <= available_height then
+                -- text fully within icon
+                container_height = icon_width
+                icon_container = VerticalGroup:new{
+                    icon_widget
+                }
+                text_container = VerticalGroup:new{
+                    VerticalSpan:new{ width = required_span + text_offset },
+                    new_text_widget,
+                    VerticalSpan:new{ width = container_height - (required_span + text_offset) - orig_text_height }
                 }
             else
-                -- Text within bounds
-                overlap_group = OverlapGroup:new{
+                -- text below icon
+                container_height = required_span + text_offset + orig_text_height
+                icon_container = VerticalGroup:new{
                     icon_widget,
-                    CenterContainer:new{
-                        dimen = Geom:new{ w = icon_width, h = icon_width },
-                        VerticalGroup:new{
-                            VerticalSpan:new{ width = new_span},
-                            text_Widget
-                        }
-                    }
+                    VerticalSpan:new{ width = container_height - icon_width }
+                }
+                text_container = VerticalGroup:new{
+                    VerticalSpan:new{ width = container_height - orig_text_height },
+                    new_text_widget
                 }
             end
 
+            -- Create the overlap group
+            local overlap_group = OverlapGroup:new{
+                icon_container,
+                text_container
+            }
+
             -- Make the button
-            color_button = make_button(padding, bordersize, overlap_group)
+            color_button = make_button(0, bordersize, overlap_group)
 
         else
             -- Don't need the OverlapGroup
-            color_button = make_button(padding, bordersize, icon_widget)
+            color_button = make_button(0, bordersize, icon_widget)
         end
         
         color_button.ges_events = {
