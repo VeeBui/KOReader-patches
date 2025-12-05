@@ -5,11 +5,7 @@ A collection of patches to customise and beautify the highlighting/colour select
 All patches can be used individually or in conjuction.
 
 
-<div style="display: flex; align-items: center; gap: 20px;">
-  <img src="CustomHighlightColours/Example Images/gif/Pre-CustomHighlightColours.gif" alt="Pre Highlight Suite Gif" width="40%"/>
-  <span style="font-size: 2em;">→</span>
-  <img src="IconColourMenu/Example Images/gif/Post-IconColourMenu.gif" alt="Full Highlight Suite Example Gif" width="40%"/>
-</div>
+<img src="./Highlight Suite Comparison.gif" alt="Full Highlight Suite Example Gif" style="width: 750px; max-width: 100%;"/>
 
 ## Available Patches
 

@@ -7,11 +7,7 @@ Collection of custom patches I've made or modified for [KOReader](https://github
 ### [Highlight Suite](./Highlight%20Suite/)
 A collection of patches to customise and beautify the highlighting/colour selection options.
 
-<div style="display: flex; align-items: center; gap: 20px;">
-  <img src="./Highlight Suite/CustomHighlightColours/Example Images/gif/Pre-CustomHighlightColours.gif" alt="Pre Highlight Suite Gif" style="width: 150px; max-width: 40%;"/>
-  <span style="font-size: 2em;">→</span>
-  <img src="./Highlight Suite/IconColourMenu/Example Images/gif/Post-IconColourMenu.gif" alt="Full Highlight Suite Example Gif" style="width: 150px; max-width: 40%;"/>
-</div>
+<img src="./Highlight Suite/Highlight Suite Comparison.gif" alt="Full Highlight Suite Example Gif" style="width: 600px; max-width: 100%;"/>
 
 <br>
 

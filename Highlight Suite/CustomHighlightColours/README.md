@@ -85,7 +85,7 @@ Each colour entry follows the following **format**:
 <summary><strong>Nerd stuff:</strong></summary>
 
 - ReaderHighlight.highlight_colors
-  - **koreader/frontend/apps/reader/modules/readerhighlight.lua**
+  - **koreader/frontend/apps/reader/modules/readerhighlight.lua** (line 31?)
   - This patch will overwrite the highlight_colors table in this module
   - This table only includes the display text (localised) and the colour id
     ```lua
@@ -96,6 +96,17 @@ Each colour entry follows the following **format**:
         }
     ```
 - BlitBuffer.HIGHLIGHT_COLORS
-    - *
+    - **koreader-base/ffi/blitbuffer.lua** (line 2625)
+  - This patch will overwrite the HIGHLIGHT_COLORS table in this module
+  - This table only includes the colour id and the hex code
+    ```lua
+        BB.HIGHLIGHT_COLORS = {
+            ...
+            ["id"] = "hexcode",
+            ...
+        }
+    ```
+  - It is usually called by with the function `BB.colorFromName` where BB is how BlitBuffer is referenced in the file
+    - i.e. `BB = require("ffi/blitbuffer")`
 
 </details>
