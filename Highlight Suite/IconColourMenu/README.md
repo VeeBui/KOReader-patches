@@ -261,7 +261,7 @@ $VerticalSpan = 0.5\times(original\_text.height - new\_text.height)$
 Setting the inital `new_text_widget` y-position, before taking into account any offsets, was surprisingly satisfying.
 
 
-$required\_span = \alpha \times (icon.height - original\_text.height)$
+$required{\_}span = \alpha \times (icon.height - original{\_}text.height)$
 
 Where $\alpha$ is `0, 0.5, 1` respectively for `TOP, MID, BOT`.
 
@@ -276,21 +276,21 @@ To deal with the offsets, the easiest way was to:
 1) Seperately consider the cases where the text was:
     - Higher than the top of the icon (Case 1)
 
-        $required\_span + offset < 0$
+        $required{\_}span + offset < 0$
 
     - Lower than the bottom of the icon (Case 2)
 
-        $required\_span + offset > available\_space$
+        $required{\_}span + offset > available{\_}space$
         <br>
         where
         <br>
-        $available\_space = icon.height - original\_text.height$
+        $available{\_}space = icon.height - original{\_}text.height$
 
     - Between these two/Fully within the icon space (Case 3)
 2) Seperately position the `new_text_widget` and `icon_widget` into new `VerticalGroup`s with the same heights.
 
 
-$Case_1: VerticalGroup.height = icon.height - required\_span - offset$
+$Case{\,}1: VerticalGroup.height = icon.height - required{\_}span - offset$
 
 
 
