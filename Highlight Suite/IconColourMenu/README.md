@@ -230,7 +230,7 @@ If text is diplayed...
 
 <details><summary>Diagram</summary>
 
-<img src="./Math notes/4-diagram.png" alt="Diagram of layout" style="width: 1000px; max-width: 100%;">
+<img src="./Math notes/4-diagram.png" alt="Diagram of layout" style="width: 500px; max-width: 100%;">
 
 </details>
 
@@ -248,12 +248,52 @@ If text is diplayed...
 
 Basically, if the text shrinks due to spillage, the height will also shrink. So all `text_widget`'s need to be encased to ensure that the centre of all text displays will remain aligned.
 
+```math
+VerticalSpan = 0.5\times(original\_text.height - new\_text.height)
 ```
-$$
-VerticalSpan = 
-$$
+
+---
+
+<br>
+
+    │  ├─ text_container (VerticalGroup)
+    │  ├─ icon_container (VerticalGroup)
+
+Setting the inital `new_text_widget` y-position, before taking into account any offsets, was surprisingly satisfying.
+
+```math
+required\_span = \alpha \times (icon.height - original\_text.height)
 ```
-    
+Where α is `0, 0.5, 1` respectively for `TOP, MID, BOT`.
+
+<br>
+
+---
+
+<br>
+
+To deal with the offsets, the easiest way was to:
+
+1) Seperately consider the cases where the text was:
+    - Higher than the top of the icon (Case 1)
+    ```math
+    required\_span + offset < 0
+    ```
+    - Lower than the bottom of the icon (Case 2)
+    ```math
+    required\_span + offset > available\_space
+    ```
+    ```math
+    available\_space = icon.height - original\_text.height
+    ```
+    - Between these two/Fully within the icon space (Case 3)
+2) Seperately position the `new_text_widget` and `icon_widget` into new `VerticalGroup`s with the same heights.
+
+```math
+Case_1: VerticalGroup.height = icon.height - required\_span - offset
+
+```
+
 
 
 </details>
