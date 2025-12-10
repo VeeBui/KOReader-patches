@@ -56,21 +56,29 @@ local BOT = 1
 ---------------------------------------------------------------------------------------------------
 local rows = 2
 local icon_folder = "colours/" -- the folder inside /icons/
-local icon_name_select = ID -- if your icons are {id}.png or {Name}.png
+local icon_name_select = NAME -- if your icons are {id}.png or {Name}.png
 
-local icon_width = 100 -- square icon
+local icon_width = 120 -- square icon
 local bordersize = 2
 
 local show_color_Name = true
 local text_size = 10
-local min_text_size = 10
-local text_position = MID
-local text_offset = 0
+local min_text_size = 6
+local text_position = BOT
+local text_offset = 30
 
-local change_set_for_underline = false
+local change_set_for_underline = true
 
 -- underline options (optional)
-local underline_colors = { }
+local underline_colors = {
+    -- {"Name", "id"}
+    {"Characters", "purple"},
+    {"Deities", "red"},
+    {"Animals", "yellow"},
+    {"References", "green"},
+    {"Mentions", "grey"},
+    {"Other", "cyan"}
+}
 ---------------------------------------------------------------------------------------------------
 -- 🔧 INTERNAL CODE - YOU DON'T NEED TO EDIT BELOW THIS LINE
 ---------------------------------------------------------------------------------------------------

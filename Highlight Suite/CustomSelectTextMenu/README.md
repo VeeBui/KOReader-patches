@@ -467,7 +467,7 @@ Specify a function in the `func` field. The function should return a table with 
   - I can't say I understand all of this code, but hopefully the comments explain enough
   - Some notes:
     - UIManager:setDirty(...) refreshes the screen (helps with ghosting).
-    - `this._color_chosen` was an attempt at setting a flag to clear the text selection, but ultimately didn't work.
+    - `this._color_chosen` was an attempt at setting a flag to clear the text selection - it works with my custom [Highlight Colour Icon Menu](../IconColourMenu/) patch, but not with anything else that I've tried.
 
 - Quick Highlight Colours
   <br>

@@ -2,22 +2,23 @@
 
 A patch to be able to modify the number of rows or columns in the Select Text Menu, without modifying source code files.
 
-> <div style="display: flex; align-items: center; gap: 20px;">
->   <img src="../CustomSelectTextMenu/Example Images/Pre-CustomSelectTextMenu.jpg" alt="Pre Row/Column Select Text Menu" style="width: 400px; max-width: 40%;"/>
->   <span style="font-size: 2em;">→</span>
->   <img src="./Example Images/3-Row-HL-Menu.jpg" alt="Post Row/Column Select Text Menu Example" style="width: 400px; max-width: 40%;"/>
-> </div>
-> <br>
+<div style="display: flex; align-items: center; gap: 20px;">
+  <img src="../CustomSelectTextMenu/Example Images/Pre-CustomSelectTextMenu.jpg" alt="Pre Row/Column Select Text Menu" style="width: 400px; max-width: 40%;"/>
+  <span style="font-size: 2em;">→</span>
+  <img src="./Example Images/3-Row-HL-Menu.jpg" alt="Post Row/Column Select Text Menu Example" style="width: 400px; max-width: 40%;"/>
+</div>
+<br>
   
-**Features:**
-- Ability to choose the number of columns OR rows (but not both) in the Select Text Menu
-  - I.e. can be used to create:
-    - A single row of button icons
-    - A single column of button icons
-    - Any sized grid of button icons desired
-    - See examples [here](./Example%20Images/)
-  - Independent to any changes to the source ReaderHighlight:onShowHighlightMenu as long as ButtonDialog is still called (and hasn't changed)
-  - Works with my [Custom Select Text Menu](../CustomSelectTextMenu/) patch and [2-highlight-menu-modifications.lua](https://github.com/VeeBui/koReader-highlight-menu-patch) patch
+
+> **Features:**
+> - Ability to choose the number of columns OR rows (but not both) in the Select Text Menu
+>   - I.e. can be used to create:
+>     - A single row of button icons
+>     - A single column of button icons
+>     - Any sized grid of button icons desired
+>     - See examples [here](./Example%20Images/)
+>   - Independent to any changes to the source ReaderHighlight:onShowHighlightMenu as long as ButtonDialog is still called (and hasn't changed)
+>   - Works with my [Custom Select Text Menu](../CustomSelectTextMenu/) patch and [2-highlight-menu-modifications.lua](https://github.com/VeeBui/koReader-highlight-menu-patch) patch
 
 **Requested by**
   - [u/TheSpicyNovella on Reddit](https://www.reddit.com/r/koreader/comments/1pajkt7/editing_koreader_highlight_menu_columns_on/)

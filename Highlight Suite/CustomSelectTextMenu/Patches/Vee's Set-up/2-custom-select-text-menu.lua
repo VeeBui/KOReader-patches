@@ -117,9 +117,12 @@ function custom_highlight_func(this)
                 UIManager:setDirty(this.dialog, "ui", Geom.boundingBox(saved_selection.sboxes))
             end
             
+            this._color_chosen = false
+            
             -- Then show colour dialog immediately
             this:showHighlightColorDialog(
                 function(selected_color)
+                    this._color_chosen = true
                     this:saveHighlightFormatted(true, "lighten", selected_color)
                     this:clear()  -- Clear highlight after saving
                 end,
