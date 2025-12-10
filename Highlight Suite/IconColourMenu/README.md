@@ -248,7 +248,7 @@ If text is diplayed...
 
 Basically, if the text shrinks due to spillage, the height will also shrink. So all `text_widget`'s need to be encased to ensure that the centre of all text displays will remain aligned.
 
-$VerticalSpan = 0.5\times(original\_text.height - new\_text.height)$
+$VerticalSpan = 0.5\times(originalText.height - newText.height)$
 
 
 ---
@@ -261,7 +261,7 @@ $VerticalSpan = 0.5\times(original\_text.height - new\_text.height)$
 Setting the inital `new_text_widget` y-position, before taking into account any offsets, was surprisingly satisfying.
 
 
-$required {\_} span = \alpha \times (icon.height - original {\_} text.height)$
+$requiredSpan = \alpha \times (icon.height - originalText.height)$
 
 Where $\alpha$ is `0, 0.5, 1` respectively for `TOP, MID, BOT`.
 
@@ -274,26 +274,30 @@ Where $\alpha$ is `0, 0.5, 1` respectively for `TOP, MID, BOT`.
 To deal with the offsets, the easiest way was to:
 
 1) Seperately consider the cases where the text was:
-    - Higher than the top of the icon (Case 1)
+    - Higher than the top of the icon (**Case 1**)
 
-        $required{\_}span + offset < 0$
+        $requiredSpan + offset < 0$
 
-    - Lower than the bottom of the icon (Case 2)
+    - Lower than the bottom of the icon (**Case 2**)
 
-        $required{\_}span + offset > available{\_}space$
+        $requiredSpan + offset > availableSpace$
         <br>
         where
         <br>
-        $available{\_}space = icon.height - original{\_}text.height$
+        $availableSpace = icon.height - originalText.height$
 
-    - Between these two/Fully within the icon space (Case 3)
+    - Between these two/Fully within the icon space (**Case 3**)
 2) Seperately position the `new_text_widget` and `icon_widget` into new `VerticalGroup`s with the same heights.
 
+    - $Case_1: VerticalGroup.height = icon.height - requiredSpan - offset$
 
-$Case{\,}1: VerticalGroup.height = icon.height - required{\_}span - offset$
+        *Note: offset will have a negative value in this case
 
+    - $Case_2: VerticalGroup.height = requiredSpan + offset + originalText.height$
+    - $Case_3: VerticalGroup.height = icon.height$
 
+<br>
 
-
+<img src="./Math notes/3-math-notes.png" alt="My working out for these values" style="width: 750px; max-width: 100%;">
 
 </details>
