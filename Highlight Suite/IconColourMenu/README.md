@@ -15,169 +15,41 @@ A patch to change the Select Highlight Colour Menu from a list of radio buttons 
 >         - Note, these match the hex values from my [Custom Highlight Colours](../CustomHighlightColours/Patches/Vee's%20Colours/) patch
 >         <br>
 > 
->             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(30px, 80px)); gap: 5px; padding: 0px;">
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Basic Icons/red.png" alt="Red" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">red.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Basic Icons/orange.png" alt="Orange" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">orange.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Basic Icons/yellow.png" alt="Yellow" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">yellow.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Basic Icons/olive.png" alt="Olive" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">olive.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Basic Icons/green.png" alt="Green" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">green.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Basic Icons/turquoise.png" alt="Turquoise" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">turquoise.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Basic Icons/cyan.png" alt="Cyan" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">cyan.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Basic Icons/blue.png" alt="Blue" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">blue.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Basic Icons/indigo.png" alt="Indigo" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">indigo.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Basic Icons/purple.png" alt="Purple" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">purple.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Basic Icons/pink.png" alt="Pink" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">pink.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Basic Icons/grey.png" alt="Grey" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">grey.png</div>
->             </div>
->             </div>
->             <br>
+>| | | | | |
+>|:---:|:---:|:---:|:---:|:---:|
+>| <img src="Pre-made%20Icons/Vee's%20Basic%20Icons/red.png" width="80"><br>red.png | <img src="Pre-made%20Icons/Vee's%20Basic%20Icons/orange.png" width="80"><br>orange.png | <img src="Pre-made%20Icons/Vee's%20Basic%20Icons/yellow.png" width="80"><br>yellow.png | <img src="Pre-made%20Icons/Vee's%20Basic%20Icons/olive.png" width="80"><br>olive.png | <img src="Pre-made%20Icons/Vee's%20Basic%20Icons/green.png" width="80"><br>green.png |
+>| <img src="Pre-made%20Icons/Vee's%20Basic%20Icons/turquoise.png" width="80"><br>turquoise.png | <img src="Pre-made%20Icons/Vee's%20Basic%20Icons/cyan.png" width="80"><br>cyan.png | <img src="Pre-made%20Icons/Vee's%20Basic%20Icons/blue.png" width="80"><br>blue.png | <img src="Pre-made%20Icons/Vee's%20Basic%20Icons/indigo.png" width="80"><br>indigo.png | <img src="Pre-made%20Icons/Vee's%20Basic%20Icons/purple.png" width="80"><br>purple.png |
+>| <img src="Pre-made%20Icons/Vee's%20Basic%20Icons/pink.png" width="80"><br>pink.png | <img src="Pre-made%20Icons/Vee's%20Basic%20Icons/grey.png" width="80"><br>grey.png | | | |
 > 
->             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(30px, 80px)); gap: 5px; padding: 0px;">
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Lighten/Spicy.png" alt="Spicy" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Spicy.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Lighten/Weird.png" alt="Weird" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Weird.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Lighten/Interesting.png" alt="Interesting" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Interesting.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Lighten/Character.png" alt="Character" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Character.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Lighten/Hate.png" alt="Hate" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Hate.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Lighten/Funny.png" alt="Funny" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Funny.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Lighten/Artistic.png" alt="Artistic" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Artistic.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Lighten/Deep.png" alt="Deep" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Deep.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Lighten/Special.png" alt="Special" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Special.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Lighten/General.png" alt="General" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">General.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Lighten/Love.png" alt="Love" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Love.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Lighten/Grey.png" alt="Grey" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Grey.png</div>
->             </div>
->             </div>
+> <br>
+> 
+>| | | | | |
+>|:---:|:---:|:---:|:---:|:---:|
+>| <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Lighten/Spicy.png" width="80"><br>Spicy.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Lighten/Weird.png" width="80"><br>Weird.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Lighten/Interesting.png" width="80"><br>Interesting.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Lighten/Character.png" width="80"><br>Character.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Lighten/Hate.png" width="80"><br>Hate.png |
+>| <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Lighten/Funny.png" width="80"><br>Funny.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Lighten/Artistic.png" width="80"><br>Artistic.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Lighten/Deep.png" width="80"><br>Deep.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Lighten/Special.png" width="80"><br>Special.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Lighten/General.png" width="80"><br>General.png |
+>| <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Lighten/Love.png" width="80"><br>Love.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Lighten/Grey.png" width="80"><br>Grey.png | | | |
 > <br>
 > 
 > - Ability to use subset of colours while underlining
 >     - Can change display text
 >     - Can utilise different icons for underlining if `local icon_name_select = NAME`
->         - <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(30px, 80px)); gap: 5px; padding: 0px;">
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Underscore/Characters.png" alt="Characters" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Characters.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Underscore/Deities.png" alt="Deities" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Deities.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Underscore/Animals.png" alt="Animals" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Animals.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Underscore/References.png" alt="References" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">References.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Underscore/Mentions.png" alt="Mentions" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Mentions.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Underscore/Other.png" alt="Other" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Other.png</div>
->             </div>
->             </div>
->         <br>
 > 
->         - With outlines for some darkmode applications:
->         - <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(30px, 80px)); gap: 5px; padding: 0px;">
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Underscore%20(outlined)/Characters.png" alt="Characters" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Characters.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Underscore%20(outlined)/Deities.png" alt="Deities" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Deities.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Underscore%20(outlined)/Animals.png" alt="Animals" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Animals.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Underscore%20(outlined)/References.png" alt="References" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">References.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Underscore%20(outlined)/Mentions.png" alt="Mentions" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Mentions.png</div>
->             </div>
->             <div style="text-align: center;">
->                 <img src="Pre-made Icons/Vee's Hand-drawn Icons/Underscore%20(outlined)/Other.png" alt="Other" style="width: 100%; height: auto;">
->                 <div style="font-size: 10px; margin-top: 0px;">Other.png</div>
->             </div>
->             </div>
->         <br>
+>       | | | |
+>       |:---:|:---:|:---:|
+>       | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Underscore/Characters.png" width="80"><br>Characters.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Underscore/Deities.png" width="80"><br>Deities.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Underscore/Animals.png" width="80"><br>Animals.png |
+>       | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Underscore/References.png" width="80"><br>References.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Underscore/Mentions.png" width="80"><br>Mentions.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Underscore/Other.png" width="80"><br>Other.png | | | |
+> 
+>   <br>
+> 
+>   - With outlines for some darkmode applications:
+> 
+>       | | | |
+>       |:---:|:---:|:---:|
+>       | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Underscore%20(outlined)/Characters.png" width="80"><br>Characters.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Underscore%20(outlined)/Deities.png" width="80"><br>Deities.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Underscore%20(outlined)/Animals.png" width="80"><br>Animals.png |
+>       | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Underscore%20(outlined)/References.png" width="80"><br>References.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Underscore%20(outlined)/Mentions.png" width="80"><br>Mentions.png | <img src="Pre-made%20Icons/Vee's%20Hand-drawn%20Icons/Underscore%20(outlined)/Other.png" width="80"><br>Other.png | | | |
+> 
+> 
+> <br>
 > 
 > - Full customisation available:
 >     - Number of rows desired
