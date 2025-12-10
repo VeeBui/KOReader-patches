@@ -35,7 +35,7 @@ A patch to modify the buttons shown in the display text menu.
       - Tap to highlight, long press to underline
       - Use display text or custom icons
       - Choose icon file name by colour ID or colour Display Text
-      - Use with [2-row-highlight-menu.lua](../RowColSelectTextMenu/) to change the grid layout
+      - Use with my [Row/Column Select Text Menu](../RowColSelectTextMenu/) patch to change the grid layout
 4. [**Vee's version**](./Patches/Vee's%20Set-up/2-custom-select-text-menu.lua)
     - Underline button
     - Full TOC path
