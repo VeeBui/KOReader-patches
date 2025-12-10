@@ -261,7 +261,7 @@ $VerticalSpan = 0.5\times(original\_text.height - new\_text.height)$
 Setting the inital `new_text_widget` y-position, before taking into account any offsets, was surprisingly satisfying.
 
 
-$required{\_}span = \alpha \times (icon.height - original{\_}text.height)$
+$required {\_} span = \alpha \times (icon.height - original {\_} text.height)$
 
 Where $\alpha$ is `0, 0.5, 1` respectively for `TOP, MID, BOT`.
 
