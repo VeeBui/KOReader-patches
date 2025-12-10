@@ -1,7 +1,7 @@
 --[[
 ===================================================================================================
 KOREADER CUSTOM HIGHLIGHT MENU
-- Replicates KOReader stock menu
+- Vee's Set-up
 ===================================================================================================
 
 This patch adds:
@@ -38,28 +38,97 @@ local OFF = false
 -- ⚙️ SETTINGS SECTION - EDIT THESE TO CUSTOMISE YOUR MENU
 ---------------------------------------------------------------------------------------------------
 
-local full_chapter_path = OFF -- Show all valid table of contents items in chapter field
+local full_chapter_path = ON -- Show all valid table of contents items in chapter field
 local seperator_symbol = " ▸ " -- How to seperate TOC items in chapter field
 
 -- PLACE YOUR DESIRED BUTTONS/FUNCTIONS HERE
     -- If no func is specified, the original source code will be used for that button
+
+    -- Defaults:
+    -- self.view.highlight.saved_drawer
+    -- self.view.highlight.saved_color
 local function make_custom_buttons(self)
     local custom_buttons = {
-        {id = "select"},
-        {id = "highlight"},
-        {id = "copy"},
-        {id = "add_note"},
-        {id = "wikipedia"},
-        {id = "dictionary"},
-        {id = "translate"},
-        {id = "share_text"}, -- for devices that can share text
-        {id = "view_html"}, -- for cre documents only
-        {id = "user_dict"},
-        {id = "follow_link"}, -- if link selected
-        {id = "search"},
+        {id = "select"},    -- Default select button
+        {id = "copy"},      -- Default copy button
+        {
+            -- Custom highlight button
+            -- Saves full chapter path, opens colour menu, closes initial menu
+            id = "highlight",
+            func = custom_highlight_func,
+            -- End custom highlight button
+        },
+        {
+            -- Custom underline button [NEW]
+            -- Saves full chapter path, draws with underscore, stops rolling text
+            id = "underline",
+            func = function(this)
+                return {
+                    text = _("Underline"),
+                    enabled = this.hold_pos ~= nil,
+                    callback = function()
+                        this:saveHighlightFormatted(false,"underscore",self.view.highlight.saved_color)
+                        this:onClose()
+                    end,
+                }
+            end,
+            -- End custom underline button
+        },
+        {id = "add_note"},  -- Default add note button
+        {id = "translate"}, -- Default translate button
+        {id = "dictionary"},-- Default dictionary button
+        {id = "wikipedia"}, -- Default wikipedia button
+        {id = "search"}     -- Default search button
     }
     return custom_buttons
 end
+----------------------------------------------------------
+-- Functions were getting unwieldy, so placed them down here
+function custom_highlight_func(this)
+    return {
+        text = _("Highlight"),
+        enabled = this.hold_pos ~= nil,
+        callback = function()
+            -- Store the selected text before closing
+            local saved_selection = {
+                pos0 = this.selected_text.pos0,
+                pos1 = this.selected_text.pos1,
+                text = this.selected_text.text,
+                sboxes = this.selected_text.sboxes,
+                pboxes = this.selected_text.pboxes,
+                datetime = this.selected_text.datetime,
+            }
+            local saved_hold_pos = this.hold_pos
+            
+            -- Close ONLY the dialog, not the highlight
+            if this.highlight_dialog then
+                UIManager:close(this.highlight_dialog)
+                this.highlight_dialog = nil
+            end
+            -- Restore the selection
+            this.selected_text = saved_selection
+            this.hold_pos = saved_hold_pos
+
+            -- Redraw the highlight with the restored boxes
+            if this.ui.paging then
+                this.view.highlight.temp[saved_hold_pos.page] = saved_selection.sboxes or saved_selection.pboxes
+                UIManager:setDirty(this.dialog, "ui")
+            else
+                UIManager:setDirty(this.dialog, "ui", Geom.boundingBox(saved_selection.sboxes))
+            end
+            
+            -- Then show colour dialog immediately
+            this:showHighlightColorDialog(
+                function(selected_color)
+                    this:saveHighlightFormatted(true, "lighten", selected_color)
+                    this:clear()  -- Clear highlight after saving
+                end,
+                this
+            )
+        end,
+    }
+end
+
 
 ---------------------------------------------------------------------------------------------------
 -- 🔧 INTERNAL CODE - YOU DON'T NEED TO EDIT BELOW THIS LINE

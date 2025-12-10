@@ -37,6 +37,7 @@ A collection of patches to customise and beautify the highlighting/colour select
 >     - Rearrange buttons
 >     - Modify button functions
 >     - Add custom buttons
+>     - Vee's custom highlight function: Adds full TOC path to chapter property
 >   - **Credits**
 >     - Full TOC Path: [edo-jan's patch on the KOReader GitHub](https://github.com/koreader/koreader/issues/12480#issuecomment-2835548463)
 

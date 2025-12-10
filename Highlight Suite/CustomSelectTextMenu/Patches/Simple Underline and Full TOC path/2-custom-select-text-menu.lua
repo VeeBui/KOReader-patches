@@ -1,7 +1,7 @@
 --[[
 ===================================================================================================
 KOREADER CUSTOM HIGHLIGHT MENU
-- Replicates KOReader stock menu
+- Adds an underline option and changes chapter field to Full TOC Path
 ===================================================================================================
 
 This patch adds:
@@ -38,16 +38,55 @@ local OFF = false
 -- ⚙️ SETTINGS SECTION - EDIT THESE TO CUSTOMISE YOUR MENU
 ---------------------------------------------------------------------------------------------------
 
-local full_chapter_path = OFF -- Show all valid table of contents items in chapter field
+local full_chapter_path = ON -- Show all valid table of contents items in chapter field
 local seperator_symbol = " ▸ " -- How to seperate TOC items in chapter field
 
 -- PLACE YOUR DESIRED BUTTONS/FUNCTIONS HERE
     -- If no func is specified, the original source code will be used for that button
 local function make_custom_buttons(self)
     local custom_buttons = {
-        {id = "select"},
-        {id = "highlight"},
-        {id = "copy"},
+        {id = "select"},    -- Default select button
+        {
+            -- Custom highligh button [MODIFIED]
+            -- Saves full chapter path, draws with lighten, does not stop rolling text
+            id = "highlight",
+            func = function(this)
+                return {
+                    text = _("Highlight"),
+                    enabled = this.hold_pos ~= nil,
+                    callback = function()
+                        this:saveHighlightFormatted(
+                            true,
+                            "lighten",
+                            self.view.highlight.saved_color
+                        )
+                        this:onClose()
+                    end,
+                }
+            end,
+            -- End custom highlight button
+        },
+        {id = "copy"},      -- Default copy button
+        {
+            -- Custom underline button [NEW]
+            -- Saves full chapter path, draws with underscore, stops rolling text
+            id = "underline",
+            func = function(this)
+                return {
+                    text = _("Underline"),
+                    enabled = this.hold_pos ~= nil,
+                    callback = function()
+                        this:saveHighlightFormatted(
+                            false,
+                            "underscore",
+                            self.view.highlight.saved_color
+                        )
+                        this:onClose()
+                    end,
+                }
+            end,
+            -- End custom underline button
+        },
         {id = "add_note"},
         {id = "wikipedia"},
         {id = "dictionary"},

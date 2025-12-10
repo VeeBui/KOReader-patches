@@ -1,7 +1,7 @@
 --[[
 ===================================================================================================
 KOREADER CUSTOM HIGHLIGHT MENU
-- Replicates KOReader stock menu
+- Replaces Select Text Menu with options for colour highlights
 ===================================================================================================
 
 This patch adds:
@@ -33,41 +33,64 @@ local orig_saveHighlight = ReaderHighlight.saveHighlight
 -- Constants
 local ON = true
 local OFF = false
+local ID = 2
+local NAME = 1
+local ICON = 0
 
 ---------------------------------------------------------------------------------------------------
 -- ⚙️ SETTINGS SECTION - EDIT THESE TO CUSTOMISE YOUR MENU
 ---------------------------------------------------------------------------------------------------
 
-local full_chapter_path = OFF -- Show all valid table of contents items in chapter field
+local full_chapter_path = ON -- Show all valid table of contents items in chapter field
 local seperator_symbol = " ▸ " -- How to seperate TOC items in chapter field
 
--- PLACE YOUR DESIRED BUTTONS/FUNCTIONS HERE
-    -- If no func is specified, the original source code will be used for that button
-local function make_custom_buttons(self)
-    local custom_buttons = {
-        {id = "select"},
-        {id = "highlight"},
-        {id = "copy"},
-        {id = "add_note"},
-        {id = "wikipedia"},
-        {id = "dictionary"},
-        {id = "translate"},
-        {id = "share_text"}, -- for devices that can share text
-        {id = "view_html"}, -- for cre documents only
-        {id = "user_dict"},
-        {id = "follow_link"}, -- if link selected
-        {id = "search"},
-    }
-    return custom_buttons
-end
+local show_name_or_icon = ICON -- Show the name or the icon on the button
+
+local icon_folder = "colours/" -- the folder inside /icons/
+local icon_name_select = ID -- if your icons are {id}.png or {Name}.png
 
 ---------------------------------------------------------------------------------------------------
 -- 🔧 INTERNAL CODE - YOU DON'T NEED TO EDIT BELOW THIS LINE
 ---------------------------------------------------------------------------------------------------
+function make_custom_buttons_from_colours(self)
+    local custom_buttons = {}
+    local hl_colors = ReaderHighlight.highlight_colors
+
+    for i, v in ipairs(hl_colors) do
+        table.insert(
+            custom_buttons,
+            {
+                id = v[2],
+                func = function(this)
+                    local button_table =  {
+                        enabled = this.hold_pos ~= nil,
+                        callback = function()
+                            this:saveHighlightFormatted(true,"lighten",v[2])
+                            this:onClose()
+                        end,
+                        hold_callback = function()
+                            this:saveHighlightFormatted(false,"underscore",v[2])
+                            this:onClose()
+                        end
+                    }
+                    if show_name_or_icon == NAME then
+                        button_table.text = _(v[1])
+                    else
+                        button_table.icon = icon_folder .. v[icon_name_select]
+                    end
+                    return button_table
+                end
+            }
+        )
+    end
+
+    return custom_buttons
+end
+
 function ReaderHighlight:init(index)
     orig_init(self)
     local new_buttons = {}
-    local custom_buttons = make_custom_buttons(self)
+    local custom_buttons = make_custom_buttons_from_colours(self)
     
     for i, button_data in ipairs(custom_buttons) do
         local button_id = button_data.id

@@ -73,6 +73,9 @@ All patches can be used individually or in conjuction.
 > - Easily rearrange/remove buttons
 > - Add custom functions to any button
 > - Add custom buttons
+> - **Vee's custom highlight function**:
+>    - Add full TOC path to "chapter" field
+>    - E.g. Instead of `chapter = Chapter 1`, save `chapter = Section 1 ▸ Part 1 ▸ Chapter 1` (if applicable)
 > </details>
 >
 > <br>
