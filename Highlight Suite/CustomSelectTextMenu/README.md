@@ -74,6 +74,19 @@ All editable settings are located under the following banner
 ```lua
 function ReaderHighlight:saveHighlightFormatted(extend_to_sentence, hlStyle, hlColor)
 ```
+
+<strong>
+You do not need to modify anything in this function itself. This section explains the purpose of this function and how to use it.
+<br>
+<br>
+
+You may use the variables in the `SETTINGS SECTION` - `local full_chapter_path` and `local seperator_symbol` to customise your use of this function.
+
+You may also use this function when creating new buttons or modifying existing ones.
+</strong>
+<br>
+<br>
+
 This function allows for users to specify three arguments and two other variables:
 - <strong>`local full_chapter_path`</strong>:
   - Located at the top of the file, under `SETTINGS SECTION`
