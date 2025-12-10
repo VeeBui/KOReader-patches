@@ -81,6 +81,7 @@ This function allows for users to specify three arguments and two other variable
   - Some books have nested layers of Table of Contents
   <br>
     <img src="./Example Images/Multi TOC Depth Book Map.jpg" alt="Book map showing multiple TOC depths" style="width: 300px; max-width: 100%;"/>
+    <br>
   - For a highlight at the marked location, the original highlight function will save the chapter value as `"Chapter 15: Vincent"` whereas this functionality will instead save it as `"PART TWO: The Book of Knowledge ▸ Chapter 15: Vincent"`
 - <strong>`local seperator_symbol`</strong>:
   - Located at the top of the file, under `SETTINGS SECTION`
