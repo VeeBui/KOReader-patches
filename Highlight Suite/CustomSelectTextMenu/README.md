@@ -37,7 +37,13 @@ A patch to modify the buttons shown in the display text menu.
       - Choose icon file name by colour ID or colour Display Text
         - Get my hand-drawn icons [here](../IconColourMenu/Pre-made%20Icons/)
       - Use with my [Row/Column Select Text Menu](../RowColSelectTextMenu/) patch to change the grid layout
-4. [**Vee's version**](./Patches/Vee's%20Set-up/2-custom-select-text-menu.lua)
+4. [Mixed Colours and Select-Text with Icons](./Patches/Mixed%20Colours%20Icons/2-custom-select-text-menu.lua)
+    - Add some colour options mixed in with some of the original buttons from the Select Text menu
+      - Tap to highlight, long press to underline
+      - Use display text or custom icons
+        - Get my basic icons made for [ImSoRight](https://github.com/ImSoRight), [**here**](./Icons/ImSoRight/)
+      - Use with my [Row/Column Select Text Menu](../RowColSelectTextMenu/) patch to change the grid layout
+5. [**Vee's version**](./Patches/Vee's%20Set-up/2-custom-select-text-menu.lua)
     - Underline button
     - Full TOC path
     - Custom highlight button:
